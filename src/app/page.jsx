@@ -91,6 +91,7 @@ const Home = () => {
    const filteredProducts = products.filter((product) =>
       product.product.toLowerCase().includes(searchTerm.toLowerCase())
    );
+   
 
    return <>
       {loading ? (
