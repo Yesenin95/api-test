@@ -78,12 +78,12 @@ const Home = () => {
    }, [currentPage]);
 
    // Функция для обработки события изменения страницы
-   const handlePageChange = (newPage) => {
+   const pageChange = (newPage) => {
       setCurrentPage(newPage);
    };
 
    // Функция для обработки события изменения строки поиска
-   const handleSearchChange = (event) => {
+   const searchChange = (event) => {
       setSearchTerm(event.target.value);
    };
 
@@ -100,7 +100,7 @@ const Home = () => {
          <>
             <div className={styles.container}>
                <h1>Список товаров</h1>
-               <input type="text" placeholder="Поиск товаров..." value={searchTerm} onChange={handleSearchChange} className={styles.input} />
+                  <input type="text" placeholder="Поиск товаров..." value={searchTerm} onChange={searchChange} className={styles.input} />
                <table className={styles.table}>
                   <thead>
                      <tr>
@@ -123,11 +123,11 @@ const Home = () => {
                </table>
                {totalPages > 1 && (
                   <div>
-                     <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className={styles.button}>
+                        <button onClick={() => pageChange(currentPage - 1)} disabled={currentPage === 1} className={styles.button}>
                         Предыдущая страница
                      </button>
                      <span>Страница {currentPage} из {totalPages}</span>
-                     <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className={styles.button}>
+                        <button onClick={() => pageChange(currentPage + 1)} disabled={currentPage === totalPages} className={styles.button}>
                         Следующая страница
                      </button>
                   </div>
